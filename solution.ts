@@ -45,3 +45,16 @@ type Item={
 function filterByRating(items: Item[]): Item[]{
     return items.filter(item=>item.rating>=4);
 }
+
+// Problem 5:
+type User = {
+    id: number;
+    name: string; 
+    email: string;
+    isActive: boolean;
+}
+
+function filterActiveUsers(users: User[]):User[]{
+    return users.filter(user=>user.isActive===true);
+}
+
