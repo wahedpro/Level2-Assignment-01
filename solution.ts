@@ -35,3 +35,13 @@ class Person{
         return `'Name: ${this.name}, Age: ${this.age}'`;
     }
 }
+
+// Problem 4:
+type Item={
+    title: string;
+    rating: number;
+}
+
+function filterByRating(items: Item[]): Item[]{
+    return items.filter(item=>item.rating>=4);
+}
