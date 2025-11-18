@@ -97,3 +97,24 @@ function getUniqueValues(arr1:(string|number)[],arr2:(string|number)[]):(string|
     }
     return result;
 }
+
+// Problem 8:
+type Product = {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+}
+
+function calculateTotalPrice(products: Product[]):number {
+    if(products.length===0) return 0;
+
+    return products.map(product =>{
+        const basePrice = product.price * product.quantity;
+        if (product.discount !== undefined) {
+            const discountAmount = basePrice * (product.discount / 100);
+            return basePrice - discountAmount;
+        }
+        return basePrice;
+    }).reduce((total, current) => total + current, 0);
+}
