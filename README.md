@@ -52,3 +52,37 @@ Interface দিয়ে এগুলো করা যায় না।
 type ID = string | number;
 type Point = [number, number];
 ```
+
+## 2. Explain the difference between any, unknown, and never types in TypeScript.
+
+any, unknown এবং never এই গুলো হল TypeScript কিছু special টাইপ। যে তিনটার ব্যবহার তিন রকম, যেমন:
+
+### -> any
+any এমন একটা টাইপ যেখানে যেকোনো কিছু রাখা যায়। এটা কোন টাইপ চেক করে না। কোন ভুল হলেও compiler কিছু বলবে না
+
+```ts
+let x: any = 5;
+x = "hello";
+x = true;
+```
+
+### -> unknown
+unknown দেখতে অনেকটা any-এর মতোই, কিন্তু এর পার্থক্য হলো — কোনো কাজ করার আগে type-check করা বাধ্যতামূলক।
+
+```ts
+let value: unknown = "Hello";
+
+if (typeof value === "string") {
+    console.log(value.toUpperCase());
+}
+```
+
+### -> never
+নামই বলে দেয় — never মানে “কখনোই হবে না”।
+যেমন এমন ফাংশন যেটা কখনো return করবে না:
+
+```ts
+function throwErr(): never {
+    throw new Error("Error occurred");
+}
+```
