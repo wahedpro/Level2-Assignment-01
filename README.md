@@ -25,12 +25,12 @@ interface Student {
 }
 ```
 ```ts
-// Result → {id: number; name: string; age: number }
+Result → {id: number; name: string; age: number }
 ```
 
 ### -> Extending
 
-Interface খুব সহজে অন্য interface কে extend করতে পারে।
+Interface খুব সহজে অন্য আরেকটা interface কে extend করতে পারে। এই জন্য আমাদের extends keyword ব্যবহার করতে হয়।
 
 ```ts
 interface A { x: number; }
@@ -45,8 +45,7 @@ type B = A & { y: number }
 
 ### -> type more flexible
 
-type দিয়ে union, tuple কিংবা primitive টাইপও বানানো যায়।
-Interface দিয়ে এগুলো করা যায় না।
+type দিয়ে union, tuple কিংবা primitive টাইপও বানানো যায়। কিন্তু Interface দিয়ে এগুলো করা যায় না।
 
 ```ts
 type ID = string | number;
@@ -78,8 +77,7 @@ if (typeof value === "string") {
 ```
 
 ### -> never
-নামই বলে দেয় — never মানে “কখনোই হবে না”।
-যেমন এমন ফাংশন যেটা কখনো return করবে না:
+নামই বলে দেয় — never মানে “কখনোই হবে না”। যেমন এমন ফাংশন যেটা কখনো return করবে না:
 
 ```ts
 function throwErr(): never {
