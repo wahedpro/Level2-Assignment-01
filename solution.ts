@@ -73,3 +73,27 @@ function printBookDetails(book: Book):void{
     );
 }
 
+// Problem 7:
+function getUniqueValues(arr1:(string|number)[],arr2:(string|number)[]):(string|number)[]{
+    const result: (string|number)[]=[];
+    
+    function exists(value: string | number): boolean {
+        for (let i = 0; i < result.length; i++) {
+            if (result[i] === value) {
+                return true;
+            }
+        }
+        return false;
+    }
+    for (let i = 0; i < arr1.length; i++) {
+        if (!exists(arr1[i])) {
+            result[result.length] = arr1[i]; 
+        }
+    }
+    for (let i = 0; i < arr2.length; i++) {
+        if (!exists(arr2[i])) {
+            result[result.length] = arr2[i];
+        }
+    }
+    return result;
+}
